@@ -1,0 +1,167 @@
+/*!
+ * GitHub.com style
+ *
+ * GitHub Light v0.5.0
+ * https://github.com/primer/github-syntax-light
+ */
+
+.api-reference > pre {
+  display: grid;
+  width: 100%;
+}
+
+.hljs {
+  padding: 15px !important;
+  color: #334155 !important;
+  background: #f8fafc !important;
+  width: 100%;
+  border-radius: 0 0 4px 4px;
+}
+
+html.dark .hljs {
+  color: #e5e7eb !important;
+  background: #1e293b !important;
+}
+/* Base16 Atelier Seaside Light - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/seaside) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+
+/* Atelier-Seaside Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #687d68;
+}
+
+/* Atelier-Seaside Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #e6193c;
+}
+
+/* Atelier-Seaside Orange */
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #6366f1;
+}
+
+/* Atelier-Seaside Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #10b981;
+}
+
+/* Atelier-Seaside Blue */
+.hljs-title,
+.hljs-section {
+  color: #3d62f5;
+}
+
+/* Atelier-Seaside Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #8b5cf6;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #f4fbf4;
+  color: #5e6e5e;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.prose pre,
+.prose code,
+.prose p > code {
+  font-weight: 200;
+  font-size: 0.775em;
+  padding: 4px 6px;
+  border-radius: 3px;
+  background: #ece7ff;
+  color: #252a63;
+}
+
+.prose code::before,
+.prose code::after {
+  content: '';
+}
+
+html.dark .prose p > code,
+html.dark .prose pre,
+html.dark .prose code {
+  color: #e2e8f0;
+  background: #334155;
+}
+
+html.dark .prose a strong {
+  color: #ffffff;
+}
+
+/* Overwrites for JSONInput component */
+#body-body [type='number'] {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  line-height: normal;
+}
+
+#body-warning-box span:first-of-type {
+  display: none !important;
+}
+
+#body-warning-box span:last-of-type {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center;
+  position: static !important;
+  padding-left: 15px;
+  color: '#EF4444' !important;
+  height: 40px !important;
+  justify-content: flex-end;
+}
+
+#body-warning-box span:last-of-type > p {
+  color: #dc2626 !important;
+  width: 100% !important;
+}
+
+#body-labels > div {
+  color: #94a3b8 !important;
+}
+
+html.dark #body-container #body-body {
+  background: #1e293b !important;
+  border: none !important;
+}
+
+html.dark #body-container #body-body span[type='symbol'],
+html.dark #body-container #body-body span[type='colon'] {
+  color: #e5e7eb !important;
+}
+
+html.dark #body-container #body-body span[type='primitive'] {
+  color: #818cf8 !important;
+}

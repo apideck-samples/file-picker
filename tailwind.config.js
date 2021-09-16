@@ -3,8 +3,11 @@ const colors = require('tailwindcss/colors')
 const config = require('@apideck/components/tailwind-config')
 
 module.exports = config({
-  mode: 'jit',
-  purge: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    '@apideck/file-picker/dist/styles.css'
+  ],
   darkMode: false,
   theme: {
     extend: {
@@ -17,5 +20,5 @@ module.exports = config({
     }
   },
   variants: {},
-  plugins: [require('@tailwindcss/ui')]
+  plugins: []
 })

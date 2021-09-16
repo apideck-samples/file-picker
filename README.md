@@ -1,75 +1,29 @@
-# Next Starter Kit
+# Apideck File Picker Demo
 
-<img alt="Logo" align="right" src="./public/img/logo.png" width="10%" />
+A sample project to showcase the React file picker component that works with the Apideck [File Storage API](https://developers.apideck.com/apis/file-storage/reference).
 
-A boilerplate for creating new projects with Next.js, TypeScript, Tailwind CSS, ESLint, Prettier, Jest, and React Testing Library. Bootstrapped with [create-next-app](https://nextjs.org/docs/api-reference/create-next-app).
-<br>
-<br>
+Sign up for a free account at [apideck.com](https://app.apideck.com/signup) to obtain an API key and App ID.
 
-## Quick overview
+## Getting started
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the starter kit:
+Duplicate `.env.example` file, rename it to `.env` and replace the placeholders with your Apideck credentials.
 
-```bash
-npx create-next-app --example https://github.com/apideck-io/next-starter-kit
-# or
-yarn create next-app --example https://github.com/apideck-io/next-starter-kit
-```
-
-It will create a new directory inside the current folder.<br>
-Inside that directory, it will generate the initial project structure and install the transitive dependencies:
+Install the dependencies and run the local development server:
 
 ```
- my-app
- ┣ __tests__
- ┃ ┣ components
- ┃ ┃ ┣ __snapshots__
- ┃ ┃ ┗ layout.test.tsx
- ┃ ┗ pages
- ┃ ┃ ┣ __snapshots__
- ┃ ┃ ┗ index.test.tsx
- ┣ public
- ┃ ┣ fonts
- ┃ ┃ ┣ basier-circle
- ┃ ┣ img
- ┃ ┃ ┣ logo.png
- ┃ ┃ ┗ screenshot.jpg
- ┣ src
- ┃ ┣ components
- ┃ ┃ ┗ Layout.tsx
- ┃ ┣ pages
- ┃ ┃ ┣ _app.tsx
- ┃ ┃ ┗ index.tsx
- ┃ ┗ styles
- ┃ ┃ ┗ tailwind.css
- ┣ .babelrc
- ┣ .eslintrc.json
- ┣ .gitignore
- ┣ .prettierrc
- ┣ README.md
- ┣ jest.config.js
- ┣ next-env.d.ts
- ┣ package.json
- ┣ postcss.config.js
- ┣ tailwind.config.js
- ┣ tsconfig.json
- ┗ yarn.lock
+yarn && yarn dev
 ```
 
-Once the installation is done, you can open your project folder:
+View the code and documentation of the File Picker component [here](https://github.com/apideck-libraries/file-picker).
 
-```sh
-cd next-starter-kit
-```
-
-Inside the newly created project, you can run some commands:
+### Commands
 
 #### `yarn dev`
 
 Runs `next dev` which starts the app in development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<img alt="Screenshot" src="./public/img/screenshot.jpg" />
+<img alt="Screenshot" src="./public/img/filepicker.png" />
 
 #### `yarn build`
 

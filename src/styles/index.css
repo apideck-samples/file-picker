@@ -1,0 +1,12 @@
+@import './tailwind.css';
+@import './code.css';
+
+body {
+  background-color: rgb(237, 242, 247);
+}
+
+.custom-shadow {
+  box-shadow: 1.4px 1.9px 2.2px rgba(0, 0, 0, 0.02), 3.5px 4.7px 5.3px rgba(0, 0, 0, 0.028),
+    6.5px 8.8px 10px rgba(0, 0, 0, 0.035), 11.6px 15.6px 17.9px rgba(0, 0, 0, 0.042),
+    21.7px 29.2px 33.4px rgba(0, 0, 0, 0.05), 52px 70px 80px rgba(0, 0, 0, 0.07);
+}
