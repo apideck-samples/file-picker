@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Basier Circle';
+    src: url('/fonts/BasierCircle/BasierCircle-Bold.eot');
+    src: local('/fonts/BasierCircle/Basier Circle Bold'),
+      local('/fonts/BasierCircle/BasierCircle-Bold'),
+      url('/fonts/BasierCircle/BasierCircle-Bold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/BasierCircle/BasierCircle-Bold.woff2') format('woff2'),
+      url('/fonts/BasierCircle/BasierCircle-Bold.woff') format('woff'),
+      url('/fonts/BasierCircle/BasierCircle-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Basier Circle';
+    src: url('/fonts/BasierCircle/BasierCircle-SemiBold.eot');
+    src: local('/fonts/BasierCircle/Basier Circle SemiBold'),
+      local('/fonts/BasierCircle/BasierCircle-SemiBold'),
+      url('/fonts/BasierCircle/BasierCircle-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/BasierCircle/BasierCircle-SemiBold.woff2') format('woff2'),
+      url('/fonts/BasierCircle/BasierCircle-SemiBold.woff') format('woff'),
+      url('/fonts/BasierCircle/BasierCircle-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Basier Circle';
+    src: url('/fonts/BasierCircle/BasierCircle-Medium.eot');
+    src: local('/fonts/BasierCircle/Basier Circle Medium'),
+      local('/fonts/BasierCircle/BasierCircle-Medium'),
+      url('/fonts/BasierCircle/BasierCircle-Medium.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/BasierCircle/BasierCircle-Medium.woff2') format('woff2'),
+      url('/fonts/BasierCircle/BasierCircle-Medium.woff') format('woff'),
+      url('/fonts/BasierCircle/BasierCircle-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Basier Circle';
+    src: url('/fonts/BasierCircle/BasierCircle-Regular.eot');
+    src: local('/fonts/BasierCircle/Basier Circle Regular'),
+      local('/fonts/BasierCircle/BasierCircle-Regular'),
+      url('/fonts/BasierCircle/BasierCircle-Regular.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/BasierCircle/BasierCircle-Regular.woff2') format('woff2'),
+      url('/fonts/BasierCircle/BasierCircle-Regular.woff') format('woff'),
+      url('/fonts/BasierCircle/BasierCircle-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+}
