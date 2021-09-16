@@ -1,10 +1,10 @@
-import { Button } from '@apideck/components'
+import { Button, useToast } from '@apideck/components'
 import { File, FilePicker } from '@apideck/file-picker'
 import camelCaseKeys from 'camelcase-keys'
 import CodeBlock from 'components/CodeBlock'
 import { decode } from 'jsonwebtoken'
 import { applySession } from 'next-session'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Session } from 'types/Session'
 import { useSession } from 'utils/useSession'
 import Layout from '../components/Layout'
@@ -19,7 +19,9 @@ interface Props {
 
 const IndexPage = ({ jwt, token }: Props) => {
   const [file, setFile] = useState<File>()
+  const [isDownloading, setIsDownloading] = useState<boolean>(false)
   const { createSession, session, setSession, isLoading } = useSession()
+  const { addToast } = useToast()
 
   useEffect(() => {
     if (token) {
@@ -31,8 +33,53 @@ const IndexPage = ({ jwt, token }: Props) => {
     setFile(data)
   }
 
+  const handleDownload = () => {
+    const downloadFile = async () => {
+      const headers = {
+        'Content-Type': 'application/json',
+        'x-apideck-auth-type': 'JWT',
+        'x-apideck-app-id': session?.applicationId || '',
+        'x-apideck-consumer-id': session?.consumerId || '',
+        Authorization: `Bearer ${jwt}`
+      }
+
+      const url = `https://unify.apideck.com/file-storage/files/${file.id}/download`
+
+      const response = await fetch(url, { headers })
+      return response.blob()
+    }
+
+    if (session && file) {
+      setIsDownloading(true)
+      downloadFile()
+        .then((blob) => {
+          const objectURL = URL.createObjectURL(blob)
+
+          // Create download link and click it
+          const link = document.createElement('a')
+          link.href = objectURL
+          link.setAttribute('download', file.name)
+          document.body.appendChild(link)
+          link.click()
+          link?.parentNode?.removeChild(link)
+
+          addToast({
+            title: 'File successfully downloaded',
+            description: file.name,
+            image: blob.type?.startsWith('image') ? objectURL : undefined,
+            type: 'success',
+            closeAfter: 6000
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+        .finally(() => setIsDownloading(false))
+    }
+  }
+
   return (
-    <Layout title="Home | Next Starter Kit">
+    <Layout>
       <a
         href="https://github.com/apideck-samples/file-picker"
         target="_blank"
@@ -53,28 +100,45 @@ const IndexPage = ({ jwt, token }: Props) => {
             <h3 className="text-xl font-semibold leading-6 text-gray-800">Apideck File Picker</h3>
             <div className="mt-2">
               <p className="my-3 text-gray-500">
-                Welcome to the demo of the{' '}
+                The is a demo project for the{' '}
                 <a className="font-semibold hover:text-blue-700" href="https://www.apideck.com">
                   Apideck
                 </a>{' '}
-                File Picker component. First create a session and then pick a file.
+                File Picker component. First create a session and then you can pick a file.
               </p>
-              {session?.jwt ? (
-                <FilePicker
-                  jwt={session.jwt}
-                  consumerId={session.consumerId}
-                  appId={session.applicationId}
-                  trigger={<Button text="Pick a file" />}
-                  onSelect={handleSelect}
-                />
-              ) : (
-                <Button
-                  onClick={createSession}
-                  text="Create session"
-                  isLoading={isLoading}
-                  variant="outline"
-                />
-              )}
+              <div className="flex items-center justify-center">
+                {session?.jwt ? (
+                  <Fragment>
+                    <FilePicker
+                      jwt={session.jwt}
+                      consumerId={session.consumerId}
+                      appId={session.applicationId}
+                      trigger={
+                        <Button
+                          text={file ? 'Pick new file' : 'Pick a file'}
+                          variant={file ? 'outline' : 'primary'}
+                        />
+                      }
+                      onSelect={handleSelect}
+                    />
+                    {file ? (
+                      <Button
+                        text="Download file"
+                        onClick={handleDownload}
+                        className="ml-3"
+                        isLoading={isDownloading}
+                      />
+                    ) : null}
+                  </Fragment>
+                ) : (
+                  <Button
+                    onClick={createSession}
+                    text="Create session"
+                    isLoading={isLoading}
+                    variant="outline"
+                  />
+                )}
+              </div>
               {file ? (
                 <div className="self-start flex-1 flex-grow mt-4 text-left text-gray-700">
                   <CodeBlock title={file?.name} code={JSON.stringify(file, null, 2)} lang="json" />

@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@apideck/components@^0.6.5":
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/@apideck/components/-/components-0.6.5.tgz#50666c3f37304f8f5d852aa8bfcd84c4cb0b2a7d"
-  integrity sha512-gMeIpcSAK/5UsNEcciIz8bL/VUnuie5rRKvoGbIDv9nlKtpAnQ51BaEofLl1q5McjyOA/kdeAXqjAnmaUevXmA==
+"@apideck/components@^0.6.7":
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/@apideck/components/-/components-0.6.7.tgz#ddaeb3fdefbb38c0139928333780aba3f3752199"
+  integrity sha512-xSP12muP1sTZKEz6Phj3w+IvdZOvc7EZGSq3flXFrDfaiSgf8A/AOlljb+3FQ3Gm5eOtx3znWMtKcik260CMrA==
   dependencies:
     "@tailwindcss/forms" "^0.3.3"
     deepmerge "4.2.2"

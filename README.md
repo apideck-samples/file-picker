@@ -1,8 +1,10 @@
 # Apideck File Picker Demo
 
-A sample project to showcase the React file picker component that works with the Apideck [File Storage API](https://developers.apideck.com/apis/file-storage/reference).
+A sample project showcasing the React File Picker component that works with the Apideck [File Storage API](https://developers.apideck.com/apis/file-storage/reference).
 
 Sign up for a free account at [apideck.com](https://app.apideck.com/signup) to obtain an API key and App ID.
+
+View the code and documentation of the File Picker component [here](https://github.com/apideck-libraries/file-picker).
 
 ## Getting started
 
@@ -14,7 +16,7 @@ Install the dependencies and run the local development server:
 yarn && yarn dev
 ```
 
-View the code and documentation of the File Picker component [here](https://github.com/apideck-libraries/file-picker).
+<img alt="Screenshot" src="./public/img/filepicker.png" />
 
 ### Commands
 
@@ -22,8 +24,6 @@ View the code and documentation of the File Picker component [here](https://gith
 
 Runs `next dev` which starts the app in development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-<img alt="Screenshot" src="./public/img/filepicker.png" />
 
 #### `yarn build`
 
@@ -81,6 +81,8 @@ Before each push to the repository we run `jest` to check if all tests are passi
 
 To learn more, take a look at the following resources:
 
+- [File Storage API](https://developers.apideck.com/apis/file-storage/reference) - Apideck unified API reference
+- [@apideck/file-picker](https://github.com/apideck-libraries/file-picker) - The React File Picker component
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial
 - [TypeScript](https://www.typescriptlang.org/) - learn about TypeScript
