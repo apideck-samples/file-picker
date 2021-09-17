@@ -34,7 +34,7 @@ const IndexPage = ({ jwt, token }: Props) => {
   }
 
   const handleDownload = () => {
-    const downloadFile = async () => {
+    const downloadFile = async (file: File) => {
       const headers = {
         'Content-Type': 'application/json',
         'x-apideck-auth-type': 'JWT',
@@ -43,15 +43,15 @@ const IndexPage = ({ jwt, token }: Props) => {
         Authorization: `Bearer ${jwt}`
       }
 
-      const url = `https://unify.apideck.com/file-storage/files/${file.id}/download`
+      const url = `${process.env.NEXT_PUBLIC_BASE_URL}/file-storage/files/${file.id}/download`
 
       const response = await fetch(url, { headers })
       return response.blob()
     }
 
-    if (session && file) {
+    if (session && file?.id) {
       setIsDownloading(true)
-      downloadFile()
+      downloadFile(file)
         .then((blob) => {
           const objectURL = URL.createObjectURL(blob)
 
