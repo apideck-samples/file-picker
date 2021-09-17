@@ -72,7 +72,11 @@ const IndexPage = ({ jwt, token }: Props) => {
           })
         })
         .catch((error) => {
-          console.log(error)
+          addToast({
+            title: 'Downloading file failed',
+            description: error?.message ? error.message : error,
+            type: 'error'
+          })
         })
         .finally(() => setIsDownloading(false))
     }
