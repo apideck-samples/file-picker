@@ -1,6 +1,6 @@
 # Apideck File Picker Demo
 
-A sample project showcasing the React File Picker component that works with the Apideck [File Storage API](https://developers.apideck.com/apis/file-storage/reference).
+A sample project showcasing the [React File Picker](https://www.npmjs.com/package/@apideck/file-picker) component that works with the Apideck [File Storage API](https://developers.apideck.com/apis/file-storage/reference).
 
 Sign up for a free account at [apideck.com](https://app.apideck.com/signup) to obtain an API key and App ID.
 
@@ -8,7 +8,7 @@ View the code and documentation of the File Picker component [here](https://gith
 
 ## Getting started
 
-Duplicate `.env.example` file, rename it to `.env` and replace the placeholders with your Apideck credentials.
+Duplicate `.env.example` file, rename it to `.env` and replace the placeholders with your Apideck credentials. You can get your API key at [apideck.com]([apideck.com](https://app.apideck.com/).
 
 Install the dependencies and run the local development server:
 
