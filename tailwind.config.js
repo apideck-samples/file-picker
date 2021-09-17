@@ -6,7 +6,7 @@ module.exports = config({
   purge: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
-    '@apideck/file-picker/dist/styles.css'
+    './node_modules/@apideck/file-picker/dist/*.js'
   ],
   darkMode: false,
   theme: {
