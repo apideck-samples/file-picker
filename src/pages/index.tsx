@@ -108,7 +108,11 @@ const IndexPage = ({ jwt, token }: Props) => {
                 <a className="font-semibold hover:text-blue-700" href="https://www.apideck.com">
                   Apideck
                 </a>{' '}
-                File Picker component. First create a session and then you can pick a file.
+                File Picker component.{' '}
+                {session?.jwt
+                  ? ` Click the button below to open the file picker`
+                  : `First create a session and then you can pick a file`}
+                .
               </p>
               <div className="flex items-center justify-center">
                 {session?.jwt ? (
