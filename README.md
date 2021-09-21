@@ -8,7 +8,7 @@ View the code and documentation of the File Picker component [here](https://gith
 
 ## Getting started
 
-Duplicate `.env.example` file, rename it to `.env` and replace the placeholders with your Apideck credentials. You can get your API key at [apideck.com]([apideck.com](https://app.apideck.com/).
+Duplicate `.env.example` file, rename it to `.env` and replace the placeholders with your Apideck credentials. You can get your API key at [apideck.com](https://app.apideck.com/api-keys).
 
 Note that if the consumer ID is is randomly generated for demoing purposes.
 
