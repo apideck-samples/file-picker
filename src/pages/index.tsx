@@ -1,13 +1,14 @@
 import { Button, useToast } from '@apideck/components'
 import { File, FilePicker } from '@apideck/file-picker'
-import camelCaseKeys from 'camelcase-keys'
-import CodeBlock from 'components/CodeBlock'
-import { decode } from 'jsonwebtoken'
-import { applySession } from 'next-session'
 import { Fragment, useEffect, useState } from 'react'
-import { Session } from 'types/Session'
-import { useSession } from 'utils/useSession'
+
+import CodeBlock from 'components/CodeBlock'
 import Layout from '../components/Layout'
+import { Session } from 'types/Session'
+import { applySession } from 'next-session'
+import camelCaseKeys from 'camelcase-keys'
+import { decode } from 'jsonwebtoken'
+import { useSession } from 'utils/useSession'
 
 // If your project does NOT use TailwindCSS you should import the CSS like this:
 // import '@apideck/file-picker/dist/styles.css'
@@ -88,12 +89,32 @@ const IndexPage = ({ jwt, token }: Props) => {
         href="https://github.com/apideck-samples/file-picker"
         target="_blank"
         rel="noreferrer"
-        className="absolute hidden text-gray-500 transition-colors duration-200 xl:block hover:text-gray-600 top-5 right-5"
+        className="absolute block text-gray-500 transition-colors duration-200 hover:text-gray-800 top-5 right-5"
       >
         <svg width={24} height={24} viewBox="0 0 16 16" fill="currentColor">
           <path
             fillRule="evenodd"
             d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://www.npmjs.com/package/@apideck/file-picker"
+        target="_blank"
+        rel="noreferrer"
+        className="absolute block text-gray-500 transition-colors duration-200 hover:text-gray-800 top-6 right-14"
+      >
+        <svg
+          width="48"
+          height="auto"
+          viewBox="0 0 256 100"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMinYMin meet"
+        >
+          <path d="M0 0v85.498h71.166V99.83H128V85.498h128V0H0z" fill="currentColor" />
+          <path
+            d="M42.502 14.332h-28.17v56.834h28.17V28.664h14.332v42.502h14.332V14.332H42.502zM85.498 14.332v71.166h28.664V71.166h28.17V14.332H85.498zM128 56.834h-13.838v-28.17H128v28.17zM184.834 14.332h-28.17v56.834h28.17V28.664h14.332v42.502h14.332V28.664h14.332v42.502h14.332V14.332h-57.328z"
+            fill="#FFF"
           />
         </svg>
       </a>
