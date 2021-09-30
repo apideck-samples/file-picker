@@ -10,10 +10,10 @@
     "@tailwindcss/forms" "^0.3.3"
     deepmerge "4.2.2"
 
-"@apideck/file-picker@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@apideck/file-picker/-/file-picker-0.3.2.tgz#dff3ea4aea72e36c96a0e1b4f6293b780906d328"
-  integrity sha512-ccUQq+WP3GRov73f1Xmc3nKBz6/dIupFa1cFlMoToQD2FPUezxAbht0+fF08vhxT/KzGTdA5uPtnHcbBHTKDpQ==
+"@apideck/file-picker@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@apideck/file-picker/-/file-picker-0.4.0.tgz#64c80082ae9eb40ec99ecc7a38e80f286db680ba"
+  integrity sha512-RwKLgok2chZZRyJSsMDXDw87UmpduJuJslTKFKRfaF7wTRyhClTUrMH0QwafDWLrY+4uzDQCaSEi7RXr9NF25w==
   dependencies:
     "@headlessui/react" "^1.4.1"
     react-table "^7.7.0"

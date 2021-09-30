@@ -8,6 +8,7 @@ import { Session } from 'types/Session'
 import { applySession } from 'next-session'
 import camelCaseKeys from 'camelcase-keys'
 import { decode } from 'jsonwebtoken'
+import { useRouter } from 'next/router'
 import { useSession } from 'utils/useSession'
 
 // If your project does NOT use TailwindCSS you should import the CSS like this:
@@ -23,12 +24,22 @@ const IndexPage = ({ jwt, token }: Props) => {
   const [isDownloading, setIsDownloading] = useState<boolean>(false)
   const { createSession, session, setSession, isLoading } = useSession()
   const { addToast } = useToast()
+  const { query, replace } = useRouter()
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   useEffect(() => {
     if (token) {
       setSession({ ...token, jwt })
     }
   }, [jwt, setSession, token])
+
+  useEffect(() => {
+    // Open file picker when user is redirected back from vault
+    if (query.openFilePicker) {
+      replace('/', undefined, { shallow: true })
+      setIsOpen(true)
+    }
+  }, [query, replace])
 
   const handleSelect = (data: File) => {
     setFile(data)
@@ -149,6 +160,8 @@ const IndexPage = ({ jwt, token }: Props) => {
                         />
                       }
                       onSelect={handleSelect}
+                      open={isOpen}
+                      onClose={() => setIsOpen(false)}
                     />
                     {file ? (
                       <Button

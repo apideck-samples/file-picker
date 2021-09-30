@@ -20,7 +20,7 @@ export const SessionProvider = ({ children }: { children: ReactNode }) => {
 
   const createSession = async () => {
     setIsLoading(true)
-    const response = await createVaultSession()
+    const response = await createVaultSession(`${window.location.href}?openFilePicker=true`)
     const sessionUrl = response?.data?.session_uri
     const jwt = sessionUrl.substring(sessionUrl.lastIndexOf('/') + 1)
     if (jwt) {
