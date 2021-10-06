@@ -3,7 +3,10 @@ export const createVaultSession = async (url?: string) => {
     method: 'POST',
     body: JSON.stringify({
       redirect_uri: url || window.location.href,
-      settings: { sandbox_mode: true }
+      settings: {
+        sandbox_mode: true,
+        isolation_mode: true
+      }
     })
   })
   return response.json()
