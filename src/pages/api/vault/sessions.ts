@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 
 const consumerId =
   process.env.NEXT_PUBLIC_CONSUMER_ID ||
-  `demo-${Math.random().toString(36).substring(7)}-${new Date().toISOString()}`
+  `demo-file-picker-${Math.random().toString(36).substring(7)}-${new Date().toISOString()}`
 
 const headers = {
   'Content-Type': 'application/json',
