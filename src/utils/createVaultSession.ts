@@ -5,7 +5,9 @@ export const createVaultSession = async (url?: string) => {
       redirect_uri: url || window.location.href,
       settings: {
         sandbox_mode: true,
-        isolation_mode: true
+        isolation_mode: true,
+        show_suggestions: false,
+        unified_apis: ['file-storage']
       }
     })
   })
