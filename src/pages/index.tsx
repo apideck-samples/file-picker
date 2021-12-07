@@ -20,12 +20,14 @@ interface Props {
 }
 
 const IndexPage = ({ jwt, token }: Props) => {
-  const [file, setFile] = useState<File>()
+  const [selectedFile, setSelectedFile] = useState<File>()
+  const [fileToSave, setFileToSave] = useState<any>()
   const [isDownloading, setIsDownloading] = useState<boolean>(false)
   const { createSession, session, setSession, isLoading } = useSession()
   const { addToast } = useToast()
   const { query, replace } = useRouter()
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false)
+  const [isSaverOpen, setIsSaverOpen] = useState<boolean>(false)
 
   useEffect(() => {
     if (token) {
@@ -37,12 +39,12 @@ const IndexPage = ({ jwt, token }: Props) => {
     // Open file picker when user is redirected back from vault
     if (query.openFilePicker) {
       replace('/', undefined, { shallow: true })
-      setIsOpen(true)
+      setIsPickerOpen(true)
     }
   }, [query, replace])
 
   const handleSelect = (data: File) => {
-    setFile(data)
+    setSelectedFile(data)
   }
 
   const handleDownload = () => {
@@ -61,23 +63,23 @@ const IndexPage = ({ jwt, token }: Props) => {
       return response.blob()
     }
 
-    if (session && file?.id) {
+    if (session && selectedFile?.id) {
       setIsDownloading(true)
-      downloadFile(file)
+      downloadFile(selectedFile)
         .then((blob) => {
           const objectURL = URL.createObjectURL(blob)
 
           // Create download link and click it
           const link = document.createElement('a')
           link.href = objectURL
-          link.setAttribute('download', file.name)
+          link.setAttribute('download', selectedFile.name)
           document.body.appendChild(link)
           link.click()
           link?.parentNode?.removeChild(link)
 
           addToast({
             title: 'File successfully downloaded',
-            description: file.name,
+            description: selectedFile.name,
             image: blob.type?.startsWith('image') ? objectURL : undefined,
             type: 'success',
             closeAfter: 6000
@@ -142,28 +144,72 @@ const IndexPage = ({ jwt, token }: Props) => {
                 </a>{' '}
                 File Picker component.{' '}
                 {session?.jwt
-                  ? ` Click the button below to open the file picker`
-                  : `First create a session and then you can pick a file`}
+                  ? ` Click a button below to open the File Picker or File Saver`
+                  : `First create a session and then you can pick or upload a file`}
                 .
               </p>
               <div className="flex items-center justify-center">
                 {session?.jwt ? (
                   <Fragment>
-                    <FilePicker
-                      jwt={session.jwt}
-                      consumerId={session.consumerId}
-                      appId={session.applicationId}
-                      trigger={
-                        <Button
-                          text={file ? 'Pick new file' : 'Pick a file'}
-                          variant={file ? 'outline' : 'primary'}
+                    <div className="flex space-x-3">
+                      <FilePicker
+                        jwt={session.jwt}
+                        consumerId={session.consumerId}
+                        appId={session.applicationId}
+                        trigger={
+                          <Button
+                            text={selectedFile ? 'Pick new file' : 'Pick a file'}
+                            variant={selectedFile ? 'outline' : 'primary'}
+                          />
+                        }
+                        onSelect={handleSelect}
+                        open={isPickerOpen}
+                        onClose={() => setIsPickerOpen(false)}
+                      />
+                      {isSaverOpen ? (
+                        <FilePicker
+                          jwt={session.jwt}
+                          consumerId={session.consumerId}
+                          appId={session.applicationId}
+                          open={true}
+                          onSelect={handleSelect}
+                          onClose={() => setIsSaverOpen(false)}
+                          fileToSave={fileToSave}
                         />
-                      }
-                      onSelect={handleSelect}
-                      open={isOpen}
-                      onClose={() => setIsOpen(false)}
-                    />
-                    {file ? (
+                      ) : (
+                        <label htmlFor="file-upload" className="cursor-pointer">
+                          <span className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium leading-4 text-white transition duration-300 ease-in-out border border-transparent rounded shadow bg-primary-600 hover:shadow-md active:bg-primary-600 hover:bg-primary-700 focus:shadow-outline-primary dark:bg-gray-800 dark:text-gray-200 dark:border-gray-500 dark:hover:bg-gray-700">
+                            Save a file
+                          </span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            className="sr-only"
+                            onChange={(e: any) => {
+                              setFileToSave(e.target?.files[0])
+                              setIsSaverOpen(true)
+                            }}
+                          />
+                        </label>
+                      )}
+                      {isSaverOpen ? (
+                        <Button
+                          text="Save a file"
+                          variant="outline"
+                          onClick={() => setIsSaverOpen(true)}
+                        />
+                      ) : (
+                        <FilePicker
+                          jwt={session.jwt}
+                          consumerId={session.consumerId}
+                          appId={session.applicationId}
+                          open={isSaverOpen}
+                          onClose={() => setIsSaverOpen(false)}
+                        />
+                      )}
+                    </div>
+                    {selectedFile ? (
                       <Button
                         text="Download file"
                         onClick={handleDownload}
@@ -181,9 +227,13 @@ const IndexPage = ({ jwt, token }: Props) => {
                   />
                 )}
               </div>
-              {file ? (
+              {selectedFile ? (
                 <div className="self-start flex-1 flex-grow mt-4 text-left text-gray-700">
-                  <CodeBlock title={file?.name} code={JSON.stringify(file, null, 2)} lang="json" />
+                  <CodeBlock
+                    title={selectedFile?.name}
+                    code={JSON.stringify(selectedFile, null, 2)}
+                    lang="json"
+                  />
                 </div>
               ) : null}
             </div>
