@@ -19,7 +19,7 @@
     "@apideck/file-picker": "^0.5.1",
     "camelcase-keys": "^7.0.0",
     "jsonwebtoken": "^8.5.1",
-    "next": "11.1.2",
+    "next": "11.1.3",
     "next-session": "^3.4.0",
     "node-fetch": "^3.0.0",
     "react": "17.0.2",
