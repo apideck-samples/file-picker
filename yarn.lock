@@ -10,16 +10,16 @@
     "@tailwindcss/forms" "^0.3.3"
     deepmerge "4.2.2"
 
-"@apideck/file-picker@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@apideck/file-picker/-/file-picker-0.5.1.tgz#3104a2b67b828b599fb432353177af61ca01419c"
-  integrity sha512-HStClCLZ5ANA1HHVvDgFbP/D7M1I2aZSXXUK51ynNW3h3CkmkCUYUizQt/GphWfpKuFWyExhH078ao9tyyhS4A==
+"@apideck/file-picker@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@apideck/file-picker/-/file-picker-0.6.0.tgz#174a3474e857ed1eab0208e2628ed7ffc745c889"
+  integrity sha512-WYdiU/mNQTz5JuTM4obJINDFC5L/a29vkSqN8vFKt/1tyDLTwvgdM/6716AC+PZeam1XdELG9mwdpDapJNzUow==
   dependencies:
-    "@headlessui/react" "^1.4.1"
+    "@headlessui/react" "^1.4.2"
     react-dropzone "^11.4.2"
     react-table "^7.7.0"
     react-waypoint "^10.1.0"
-    swr "^1.0.0"
+    swr "^1.0.1"
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
@@ -593,10 +593,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
 
-"@headlessui/react@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.1.tgz#0a8dbb20e1d63dcea55bfc3ab1b87637aaac7777"
-  integrity sha512-gL6Ns5xQM57cZBzX6IVv6L7nsam8rDEpRhs5fg28SN64ikfmuuMgunc+Rw5C1cMScnvFM+cz32ueVrlSFEVlSg==
+"@headlessui/react@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.2.tgz#87e264f190dbebbf8dfdd900530da973dad24576"
+  integrity sha512-N8tv7kLhg9qGKBkVdtg572BvKvWhmiudmeEpOCyNwzOsZHCXBtl8AazGikIfUS+vBoub20Fse3BjawXDVPPdug==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
@@ -2279,11 +2279,6 @@ depd@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
-
-dequal@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.2.tgz#85ca22025e3a87e65ef75a7a437b35284a7e319d"
-  integrity sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==
 
 des.js@^1.0.0:
   version "1.0.1"
@@ -5881,12 +5876,10 @@ supports-hyperlinks@^2.0.0:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
 
-swr@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-1.0.1.tgz#15f62846b87ee000e52fa07812bb65eb62d79483"
-  integrity sha512-EPQAxSjoD4IaM49rpRHK0q+/NzcwoT8c0/Ylu/u3/6mFj/CWnQVjNJ0MV2Iuw/U+EJSd2TX5czdAwKPYZIG0YA==
-  dependencies:
-    dequal "2.0.2"
+swr@^1.0.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.1.1.tgz#f13346cc830d7950183af57b341bfabb4cc90d43"
+  integrity sha512-ZpUHyU3N3snj2QGFeE2Fd3BXl1CVS6YQIQGb1ttPAkTmvwZqDyV3GRMNPsaeAYCBM74tfn4XbKx28FVQR0mS7Q==
 
 symbol-tree@^3.2.4:
   version "3.2.4"
