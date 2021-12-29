@@ -7,6 +7,7 @@ export const createVaultSession = async (url?: string) => {
         sandbox_mode: true,
         isolation_mode: true,
         show_suggestions: false,
+        auto_redirect: true,
         unified_apis: ['file-storage']
       }
     })
