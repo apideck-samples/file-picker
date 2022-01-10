@@ -8,7 +8,8 @@ export const createVaultSession = async (url?: string) => {
         isolation_mode: true,
         show_suggestions: false,
         auto_redirect: true,
-        unified_apis: ['file-storage']
+        unified_apis: ['file-storage'],
+        session_length: '30m'
       }
     })
   })
