@@ -1,15 +1,14 @@
 import { Button, useToast } from '@apideck/components'
 import { File, FilePicker } from '@apideck/file-picker'
-import { Fragment, useEffect, useState } from 'react'
-
-import CodeBlock from 'components/CodeBlock'
-import Layout from '../components/Layout'
-import { Session } from 'types/Session'
-import { applySession } from 'next-session'
 import camelCaseKeys from 'camelcase-keys'
+import CodeBlock from 'components/CodeBlock'
 import { decode } from 'jsonwebtoken'
+import { applySession } from 'next-session'
 import { useRouter } from 'next/router'
+import { Fragment, useEffect, useState } from 'react'
+import { Session } from 'types/Session'
 import { useSession } from 'utils/useSession'
+import Layout from '../components/Layout'
 
 // If your project does NOT use TailwindCSS you should import the CSS like this:
 // import '@apideck/file-picker/dist/styles.css'
@@ -195,7 +194,7 @@ const IndexPage = ({ jwt, token }: Props) => {
                       )}
                       {isSaverOpen ? (
                         <Button
-                          text="Save a file"
+                          text="Upload a file"
                           variant="outline"
                           onClick={() => setIsSaverOpen(true)}
                         />
