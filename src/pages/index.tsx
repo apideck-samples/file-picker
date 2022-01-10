@@ -10,7 +10,6 @@ import { Session } from 'types/Session'
 import { useSession } from 'utils/useSession'
 import Layout from '../components/Layout'
 
-
 // If your project does NOT use TailwindCSS you should import the CSS like this:
 // import '@apideck/file-picker/dist/styles.css'
 
