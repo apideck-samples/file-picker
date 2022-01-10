@@ -3,6 +3,7 @@ import { ReactNode, createContext, useContext, useState } from 'react'
 import { Session } from 'types/Session'
 import { createVaultSession } from './createVaultSession'
 import { useRouter } from 'next/router'
+import { useStickyState } from './useStickyState'
 
 interface ContextProps {
   createSession: () => Promise<void>
@@ -14,7 +15,7 @@ interface ContextProps {
 const SessionContext = createContext<Partial<ContextProps>>({})
 
 export const SessionProvider = ({ children }: { children: ReactNode }) => {
-  const [session, setSession] = useState<Session>()
+  const [session, setSession] = useStickyState(false, 'session')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { push } = useRouter()
 
