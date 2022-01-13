@@ -1,5 +1,5 @@
 import { Button, useToast } from '@apideck/components'
-import { File, FilePicker } from '@apideck/file-picker'
+import { Connection, File, FilePicker } from '@apideck/file-picker'
 import camelCaseKeys from 'camelcase-keys'
 import CodeBlock from 'components/CodeBlock'
 import { decode } from 'jsonwebtoken'
@@ -20,6 +20,7 @@ interface Props {
 
 const IndexPage = ({ jwt, token }: Props) => {
   const [selectedFile, setSelectedFile] = useState<File>()
+  const [selectedConnection, setSelectedConnection] = useState<Connection>()
   const [fileToSave, setFileToSave] = useState<any>()
   const [isDownloading, setIsDownloading] = useState<boolean>(false)
   const { createSession, session, setSession, isLoading } = useSession()
@@ -49,17 +50,21 @@ const IndexPage = ({ jwt, token }: Props) => {
   const handleDownload = () => {
     const downloadFile = async (file: File) => {
       const headers = {
-        'Content-Type': 'application/json',
         'x-apideck-auth-type': 'JWT',
         'x-apideck-app-id': session?.applicationId || '',
         'x-apideck-consumer-id': session?.consumerId || '',
+        'x-apideck-service-id': selectedConnection?.service_id as string,
         Authorization: `Bearer ${jwt}`
       }
 
-      const url = `${process.env.NEXT_PUBLIC_BASE_URL}/file-storage/files/${file.id}/download`
+      const response = await fetch(`/api/download?fileId=${file.id}`, { headers })
+      const { external, download_url } = await response.json()
 
-      const response = await fetch(url, { headers })
-      return response.blob()
+      const downloadResponse = await fetch(download_url, {
+        headers: !external ? headers : undefined
+      })
+
+      return downloadResponse.blob()
     }
 
     if (session && selectedFile?.id) {
@@ -162,6 +167,7 @@ const IndexPage = ({ jwt, token }: Props) => {
                           />
                         }
                         onSelect={handleSelect}
+                        onConnectionSelect={setSelectedConnection}
                         open={isPickerOpen}
                         onClose={() => setIsPickerOpen(false)}
                       />
@@ -172,6 +178,7 @@ const IndexPage = ({ jwt, token }: Props) => {
                           appId={session.applicationId}
                           open={true}
                           onSelect={handleSelect}
+                          onConnectionSelect={setSelectedConnection}
                           onClose={() => setIsSaverOpen(false)}
                           fileToSave={fileToSave}
                         />
