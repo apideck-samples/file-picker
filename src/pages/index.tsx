@@ -162,7 +162,7 @@ const IndexPage = ({ jwt, token }: Props) => {
                         appId={session.applicationId}
                         trigger={
                           <Button
-                            text={selectedFile ? 'Pick new file' : 'Pick a file'}
+                            text={selectedFile ? 'Upload a new file' : 'Upload a file'}
                             variant={selectedFile ? 'outline' : 'primary'}
                           />
                         }
