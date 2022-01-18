@@ -1,14 +1,15 @@
 import { Button, useToast } from '@apideck/components'
 import { Connection, File, FilePicker } from '@apideck/file-picker'
-import camelCaseKeys from 'camelcase-keys'
-import CodeBlock from 'components/CodeBlock'
-import { decode } from 'jsonwebtoken'
-import { applySession } from 'next-session'
-import { useRouter } from 'next/router'
 import { Fragment, useEffect, useState } from 'react'
-import { Session } from 'types/Session'
-import { useSession } from 'utils/useSession'
+
+import CodeBlock from 'components/CodeBlock'
 import Layout from '../components/Layout'
+import { Session } from 'types/Session'
+import { applySession } from 'next-session'
+import camelCaseKeys from 'camelcase-keys'
+import { decode } from 'jsonwebtoken'
+import { useRouter } from 'next/router'
+import { useSession } from 'utils/useSession'
 
 // If your project does NOT use TailwindCSS you should import the CSS like this:
 // import '@apideck/file-picker/dist/styles.css'
@@ -137,12 +138,12 @@ const IndexPage = ({ jwt, token }: Props) => {
       </a>
       <div className="flex items-center justify-center min-h-screen p-4 text-center">
         <div className="p-8 bg-white rounded-xl custom-shadow sm:max-w-lg sm:w-full">
-          <img src="/img/logo.png" className="w-20 h-20 mx-auto -mt-12 rounded-full shadow-lg" />
+          <img src="/img/react.svg" className="w-20 h-20 mx-auto -mt-12 rounded-full shadow-lg" />
           <div className="mt-3 text-center sm:mt-5">
-            <h3 className="text-xl font-semibold leading-6 text-gray-800">Apideck File Picker</h3>
+            <h3 className="text-xl font-semibold leading-6 text-gray-800">React File Upload</h3>
             <div className="mt-2">
               <p className="my-3 text-gray-500">
-                The is a demo project for the{' '}
+                The is a demo for the{' '}
                 <a className="font-semibold hover:text-blue-700" href="https://www.apideck.com">
                   Apideck
                 </a>{' '}
@@ -162,7 +163,7 @@ const IndexPage = ({ jwt, token }: Props) => {
                         appId={session.applicationId}
                         trigger={
                           <Button
-                            text={selectedFile ? 'Upload a new file' : 'Upload a file'}
+                            text={selectedFile ? 'Select new file' : 'Select file'}
                             variant={selectedFile ? 'outline' : 'primary'}
                           />
                         }
@@ -185,7 +186,7 @@ const IndexPage = ({ jwt, token }: Props) => {
                       ) : (
                         <label htmlFor="file-upload" className="cursor-pointer">
                           <span className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium leading-4 text-white transition duration-300 ease-in-out border border-transparent rounded shadow bg-primary-600 hover:shadow-md active:bg-primary-600 hover:bg-primary-700 focus:shadow-outline-primary dark:bg-gray-800 dark:text-gray-200 dark:border-gray-500 dark:hover:bg-gray-700">
-                            Save a file
+                            Upload file
                           </span>
                           <input
                             id="file-upload"
