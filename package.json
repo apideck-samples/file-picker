@@ -15,7 +15,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "@apideck/components": "^0.6.7",
+    "@apideck/components": "^0.6.12",
     "@apideck/file-picker": "^0.7.0",
     "camelcase-keys": "^7.0.1",
     "jsonwebtoken": "^8.5.1",
